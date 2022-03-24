@@ -6,11 +6,19 @@
 /*   By: cbustama <cbustama@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:04:46 by cbustama          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/02/14 18:18:27 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+=======
+/*   Updated: 2022/02/15 14:50:09 by cbustama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft/libft.h"
+>>>>>>> 797f34884869f89b8a2ff500097b978050e105aa
 #include "push_swap.h"
 
 void	in_sort(int a[], size_t size)
