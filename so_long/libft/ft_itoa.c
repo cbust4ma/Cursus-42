@@ -1,24 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 18:29:48 by cbustama          #+#    #+#             */
-/*   Updated: 2022/02/03 14:55:41 by cbustama         ###   ########.fr       */
+/*   Created: 2021/08/12 18:49:33 by cbustama          #+#    #+#             */
+/*   Updated: 2022/03/22 19:21:47 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	len(long m)
 {
-	void	*i;
+	int	lens;
 
-	i = malloc(count * size);
-	if (!i)
+	lens = 0;
+	if (m <= 0)
+		lens = 1;
+	while (m != 0)
+	{
+		lens++;
+		m = m / 10;
+	}
+	return (lens);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*s;
+	int		i;
+	long	m;
+
+	m = n;
+	i = len(m);
+	s = (char *)malloc(sizeof(char) * (i + 1));
+	if (!s)
 		return (NULL);
-	ft_bzero(i, count * size);
-	return (i);
+	s[i--] = '\0';
+	if (m == 0)
+		s[0] = '0';
+	if (m < 0)
+	{
+		s[0] = '-';
+		m = m * -1;
+	}
+	while (m > 0)
+	{
+		s[i] = '0' + (m % 10);
+		m = m / 10;
+		i--;
+	}
+	return (s);
 }

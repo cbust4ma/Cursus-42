@@ -1,0 +1,15 @@
+	.DS_Store
+	correcion/
+	gnl/get_next_line_bonus.c
+	gnl/get_next_line_bonus.h
+	gnl/get_next_line_utils_bonus.c
+	grade/
+	libft/.main.c.swp
+	libft/ft_itoa_base.c
+	libtest.zip
+	libtest/
+	printfTester/
+	uplibft/
+	upprint/
+	warmachine.zip
+	warmachine/

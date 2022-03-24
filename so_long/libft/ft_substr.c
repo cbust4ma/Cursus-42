@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 18:29:48 by cbustama          #+#    #+#             */
-/*   Updated: 2022/02/03 14:55:41 by cbustama         ###   ########.fr       */
+/*   Created: 2021/08/09 17:20:05 by cbustama          #+#    #+#             */
+/*   Updated: 2021/08/30 16:59:12 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*i;
+	char				*dest;
+	size_t				i;
+	unsigned int		n;
 
-	i = malloc(count * size);
-	if (!i)
+	if (!s)
 		return (NULL);
-	ft_bzero(i, count * size);
-	return (i);
+	n = ft_strlen(s);
+	if (start > n)
+		return (ft_strdup(""));
+	if (len > n)
+		len = n;
+	dest = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	if (n > start)
+	{
+		while (s[start + i] && i < len)
+		{
+			dest[i] = s[start + i];
+			i++;
+		}
+	}
+	dest[i] = '\0';
+	return (dest);
 }
