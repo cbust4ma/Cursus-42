@@ -6,12 +6,20 @@
 /*   By: cbustama <cbustama@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:09:36 by cbustama          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/02/15 14:37:32 by cbustama         ###   ########.fr       */
+=======
+/*   Updated: 2022/02/15 14:51:30 by cbustama         ###   ########.fr       */
+>>>>>>> 797f34884869f89b8a2ff500097b978050e105aa
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+<<<<<<< HEAD
 #include "../libft/libft.h"
+=======
+#include "libft/libft.h"
+>>>>>>> 797f34884869f89b8a2ff500097b978050e105aa
 
 int	*fill_stack(int n, char **s, t_stack *a)
 {
