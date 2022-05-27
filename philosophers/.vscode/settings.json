@@ -1,0 +1,9 @@
+{
+	"files.associations": {
+		"__mutex_base": "c",
+		"__locale": "c",
+		"algorithm": "c",
+		"chrono": "c",
+		"unordered_map": "c"
+	}
+}
