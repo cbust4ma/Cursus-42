@@ -6,7 +6,7 @@
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:05:44 by cbustama          #+#    #+#             */
-/*   Updated: 2022/05/27 19:11:57 by cbustama         ###   ########.fr       */
+/*   Updated: 2022/05/30 17:43:00 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ long	_wait(long time, t_only_philo *philo)
 	my_time = ft_get_time();
 	while (1)
 	{
-		if (check_dead(philo))
+		if (check_dead(philo) == 1)
 			return (1);
 		if ((ft_get_time() - my_time) >= time)
 			break ;
-		usleep(50);
+		usleep(250);
+		usleep(250);
+		usleep(100);
 	}
 	return (0);
 }
@@ -82,7 +84,6 @@ int	_errors(char **argv)
 		if (argv[j][i] < '0' || argv[j][i] > '9')
 		{
 			printf (RED"Parameter Invalids %c\n", argv[j][i]);
-			printf (RED"Parameter Invalids\n"RESET);
 			return (1);
 		}
 		j++;
@@ -92,9 +93,8 @@ int	_errors(char **argv)
 
 void	out_take(t_only_philo *philo)
 {
-	pthread_mutex_unlock(&philo->philo_fork[philo->id
-		% philo->common->count].m_fork);
-	philo->philo_fork[philo->id % philo->common->count].forks = 1;
+	pthread_mutex_unlock(&philo->philo_fork[philo->r_fork].m_fork);
+	philo->philo_fork[philo->r_fork].forks = 1;
 	pthread_mutex_unlock(&philo->philo_fork[philo->id - 1].m_fork);
 	philo->philo_fork[philo->id - 1].forks = 1;
 }

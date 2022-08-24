@@ -6,7 +6,7 @@
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:32:16 by cbustama          #+#    #+#             */
-/*   Updated: 2022/05/27 19:12:36 by cbustama         ###   ########.fr       */
+/*   Updated: 2022/05/30 18:18:55 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,40 @@ int	check_dead(t_only_philo *philo)
 {
 	long	time;
 
-	if (pthread_mutex_lock(&philo->common->dead))
-		perror("ERROR MYPHILO\n");
+	pthread_mutex_lock(&philo->common->dead);
 	if (philo->common->check_dead == 1)
 	{
 		pthread_mutex_unlock(&philo->common->dead);
 		return (1);
 	}
+	pthread_mutex_unlock(&philo->common->dead);
 	time = ft_get_time();
-	if (time > philo->philo_fork[philo->id -1].eat)
-	{	
-		philo->common->check_dead = 1;
+	if (time > philo->philo_fork[philo->id - 1].eat)
+	{
+		pthread_mutex_lock(&philo->common->dead);
 		pthread_mutex_lock(&philo->common->print);
-		printf(RED"%ld %d died.\n"RESET, \
-			(ft_get_time() - philo->init), philo->id);
+		usleep(150);
+		if (philo->common->check_dead == 0)
+			printf(RED"%ld %d died.\n"RESET, \
+				(ft_get_time() - philo->init), philo->id);
+		philo->common->check_dead = 1;
 		pthread_mutex_unlock(&philo->common->print);
 		pthread_mutex_unlock(&philo->common->dead);
 		return (1);
 	}
-	pthread_mutex_unlock(&philo->common->dead);
 	return (0);
 }
 
 int	take_fork(t_only_philo *philo)
 {
-	usleep(100);
 	while (philo->philo_fork[philo->id - 1].forks == 0)
 	{
-		if (philo->common->check_dead == 1)
+		if (check_dead(philo) == 1)
 			return (1);
-		else
-			break ;
+		usleep (100);
 	}
-	if (check_dead(philo) == 1)
-		return (1);
-	else
-	{
-		pthread_mutex_lock(&philo->philo_fork[philo->id - 1].m_fork);
-		philo->philo_fork[philo->id - 1].forks = 0;
-		pthread_mutex_lock(&philo->common->print);
-		printf("%ld %d Take a fork\n", ft_get_time() - philo->init, philo->id);
-		pthread_mutex_unlock(&philo->common->print);
-		pthread_mutex_lock(&philo->philo_fork[philo->id
-			% philo->common->count].m_fork);
-		philo->philo_fork[philo->id % philo->common->count].forks = 0;
-		pthread_mutex_lock(&philo->common->print);
-		printf("%ld %d Take a fork\n", ft_get_time() - philo->init, philo->id);
-		pthread_mutex_unlock(&philo->common->print);
-	}
+	forks_left(philo);
+	forks_right(philo);
 	return (0);
 }
 
@@ -100,21 +86,36 @@ void	status_check(t_only_philo *philo)
 		+ philo->common->life;
 	philo->group = split_philo(philo);
 	philo->common->check_dead = 0;
-	while (philo->common->check_dead == 0)
+	while (check_dead(philo) == 0)
 	{
 		if (continue_status_check(philo) == NULL)
 			break ;
 		if (philo->group == 2 && philo->common->check_dead == 0)
 		{
 			philo->group = 3;
-			usleep(100);
 			if (philo_sleep(philo) == 1)
-				break ;
-			if (philo->common->check_dead == 1)
 				break ;
 		}
 		if (check_dead(philo) == 1)
 			break ;
 	}
 	free (philo);
+}
+
+int	take_fork_s(t_only_philo *philo)
+{
+	int	right_fork;
+
+	if (philo->common->check_dead == 1)
+		return (1);
+	if (philo->id == 1)
+	{
+		right_fork = philo->common->count - 1;
+		return (right_fork);
+	}
+	else
+	{
+		right_fork = philo->id - 2;
+		return (right_fork);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:28:50 by cbustama          #+#    #+#             */
-/*   Updated: 2022/05/27 19:10:43 by cbustama         ###   ########.fr       */
+/*   Updated: 2022/05/30 14:42:29 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <pthread.h>
-# include <time.h>
 # include <sys/time.h>
-# include <stdint.h>
 # define RED "\033[31m"
 # define RESET "\033[0m"
+# define R "\033[31m"
+# define RE "\033[0m"
 
 typedef struct s_philo{
 	int				count;
@@ -53,6 +53,7 @@ typedef struct s_only_philo
 	int				eating;
 	long			time;
 	long			last_eat;
+	int				r_fork;
 	t_philo			*common;
 	t_fork			*philo_fork;
 }t_only_philo;
@@ -72,5 +73,8 @@ void			*continue_status_check(t_only_philo *philo);
 void			status_check(t_only_philo *philo);
 int				_errors(char **argv);
 void			out_take(t_only_philo *philo);
+int				take_fork_s(t_only_philo *philo);
+int				forks_left(t_only_philo *philo);
+int				forks_right(t_only_philo *philo);
 
 #endif

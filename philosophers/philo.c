@@ -6,7 +6,7 @@
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:29:40 by cbustama          #+#    #+#             */
-/*   Updated: 2022/05/27 19:06:41 by cbustama         ###   ########.fr       */
+/*   Updated: 2022/05/30 18:14:24 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	continue_create_threads(t_only_philo *fork, t_philo *philo
 
 	i = 0;
 	pthread_mutex_init(&philo->print, NULL);
-	if (pthread_mutex_init(&philo->dead, NULL))
-		perror("MY Error\n");
+	pthread_mutex_init(&philo->dead, NULL);
 	while (i < philo->count)
 	{
 		fork = (t_only_philo *)malloc(sizeof(t_only_philo));
@@ -33,7 +32,7 @@ void	continue_create_threads(t_only_philo *fork, t_philo *philo
 	i = 0;
 	while (i < philo->count)
 	{
-		if (pthread_join(*philo->t, NULL) != 0)
+		if (pthread_join(philo->t[i], NULL) != 0)
 			return ;
 		i++;
 	}
@@ -54,6 +53,7 @@ void	create_threads(int len, t_philo *philo)
 	while (i < len)
 	{
 		philo_fork[i].forks = 1;
+		philo_fork[i].eat = 0;
 		pthread_mutex_init(&philo_fork[i].m_fork, NULL);
 		i++;
 	}
@@ -107,11 +107,7 @@ int	main(int argc, char **argv)
 		philo.count = ft_atoi(argv[1]);
 	}
 	if (philo.count == 1)
-	{
-		printf ("0 1 take a fork\n");
-		printf (RED "%ld 1 DIED\n"RESET, philo.life + 1);
-		return (0);
-	}
+		return (printf("0 1 take a fork\n"R"%ld 1 DIED\n"RE, philo.life + 1));
 	if (error_manager(&philo, argc) == 1)
 		return (printf("Invalid Arguments\n"));
 	create_threads(philo.count, &philo);
