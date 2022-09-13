@@ -1,0 +1,15 @@
+.DS_Store
+*.swp
+*.gch
+.vscode
+a.out
+leaks_cheker.c
+*.tmp
+a.out.*
+*.dSYM
+log_error/
+obj/
+*.o
+*.a
+*.idea
+cub3D

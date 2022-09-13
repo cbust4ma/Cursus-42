@@ -1,0 +1,30 @@
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   fun:mlx_init
+   fun:mlx_new_window
+   fun:mlx_clear_window
+   fun:mlx_destroy_window
+   fun:mlx_get_color_value
+   fun:mlx_pixel_put
+   fun:mlx_string_put
+   fun:mlx_new_image
+   fun:mlx_get_data_addr
+   fun:mlx_put_image_to_window
+   fun:mlx_destroy_image
+   fun:mlx_mouse_hook
+   fun:mlx_key_hook
+   fun:mlx_loop_hook
+   fun:mlx_loop
+   fun:mlx_xpm_to_image
+   fun:mlx_xpm_file_to_image
+   fun:mlx_png_file_to_image
+   fun:mlx_mouse_hide
+   fun:mlx_mouse_show
+   fun:mlx_mouse_move
+   fun:mlx_mouse_get_pos
+   fun:mlx_do_key_autorepeatoff
+   fun:mlx_do_key_autorepeaton
+   fun:mlx_do_sync
+   fun:mlx_get_screen_size
+}
