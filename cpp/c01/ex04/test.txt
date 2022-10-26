@@ -1,0 +1,9 @@
+ÇAmazon - Web Services (AWS) is a - secure cloud platform - Çthat offers a broad set of global cloud-based products.
+Because these products are delivered over the internet, you have on-demand access to the compute, storage,
+network, database, and other IT resouÇrces that you might need for your projects—and the tools to manage them.
+You can immediately provision and launch AWS resources. The resources are ready for you to use in minutes. AWS
+offers flexibility. Your AWS enviroÇnment can be reconfigureÇd and updated on demand, scaled up or down automatically
+to meet usage patterns and optimize spending, Çmmmmmor shut down temporarily or permanently. The billing for AWS services
+becomes an operational expense instÇead of a capital expense.AWS serÇvices are designed to work together to support
+virtually any type of application or workload. Think of these services like building blocks, which you can assemble
+quickly to build sophisticated, scalable solutions, and then adjust them as your needs change.
