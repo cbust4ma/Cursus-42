@@ -1,14 +1,28 @@
-NAME = ClapTrap
+NAME = Materia
 
-SRC = ClapTrap.cpp\
-      main.cpp
+SRC = main.cpp\
+      MateriaSource.cpp\
+      IMateriaSource.cpp\
+      AMateria.cpp\
+      Ice.cpp\
+      Cure.cpp\
+      Character.cpp
+
 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))#$(SRC:.cpp=.o)
 #wpedantic -pedantic.errors
 #Emita todas las advertencias exigidas por las estrictas normas ISO C e ISO C++; rechace todos los programas que utilicen extensiones prohibidas y algunos otros programas que no sigan las normas ISO C e ISO C++.
 OBJDIRS := $(sort $(dir $(OBJ)))
 
-override HEADERS := ClapTrap.hpp\
+override HEADERS := IMateriaSource.hpp\
+                    MateriaSource.hpp\
+                    AMateria.hpp\
+                    Ice.hpp\
+                    Cure.hpp\
+                    ICharacter.hpp\
+                    Character.hpp
+                   
+
 
 override HEADERS := $(addprefix includes/,$(HEADERS))
 

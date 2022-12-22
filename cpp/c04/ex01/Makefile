@@ -1,14 +1,24 @@
-NAME = ClapTrap
+NAME = Animal
 
-SRC = ClapTrap.cpp\
-      main.cpp
+SRC = Animal.cpp\
+      cat.cpp\
+      dog.cpp\
+      main.cpp\
+      WrongCat.cpp\
+      WrongAnimal.cpp\
+      Brain.cpp
 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))#$(SRC:.cpp=.o)
 #wpedantic -pedantic.errors
 #Emita todas las advertencias exigidas por las estrictas normas ISO C e ISO C++; rechace todos los programas que utilicen extensiones prohibidas y algunos otros programas que no sigan las normas ISO C e ISO C++.
 OBJDIRS := $(sort $(dir $(OBJ)))
 
-override HEADERS := ClapTrap.hpp\
+override HEADERS := Animal.hpp\
+                    Cat.hpp\
+                    Dog.hpp\
+                    WrongAnimal.hpp\
+                    WrongCat.hpp\
+                    Brain.hpp
 
 override HEADERS := $(addprefix includes/,$(HEADERS))
 
@@ -16,7 +26,7 @@ CPPC = clang++ -MD -O2 -Wpedantic -pedantic-errors -g3
 
 CXXFLAGS = -std=c++98
 
-CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address -static-libsan -fno-omit-frame-pointer
+CPPFLAGS = -Wall -Wextra -Werror #-fsanitize=address -static-libsan -fno-omit-frame-pointer
 
 GREEN = \033[1;32m
 WHT = \033[1;37m

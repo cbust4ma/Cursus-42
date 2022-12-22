@@ -1,7 +1,10 @@
-NAME = ClapTrap
+NAME = DiamondTrap
 
 SRC = ClapTrap.cpp\
-      main.cpp
+      main.cpp\
+      ScavTrap.cpp\
+      FragTrap.cpp\
+      DiamondTrap.cpp
 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))#$(SRC:.cpp=.o)
 #wpedantic -pedantic.errors
@@ -9,6 +12,9 @@ OBJ = $(addprefix obj/, $(SRC:.cpp=.o))#$(SRC:.cpp=.o)
 OBJDIRS := $(sort $(dir $(OBJ)))
 
 override HEADERS := ClapTrap.hpp\
+                    ScavTrap.hpp\
+                    FragTrap.hpp\
+                    DiamondTrap.hpp
 
 override HEADERS := $(addprefix includes/,$(HEADERS))
 

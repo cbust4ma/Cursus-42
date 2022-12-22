@@ -1,14 +1,22 @@
-NAME = ClapTrap
+NAME = Animal
 
-SRC = ClapTrap.cpp\
-      main.cpp
+SRC = Animal.cpp\
+      cat.cpp\
+      dog.cpp\
+      main.cpp\
+      WrongCat.cpp\
+      WrongAnimal.cpp\
 
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))#$(SRC:.cpp=.o)
 #wpedantic -pedantic.errors
 #Emita todas las advertencias exigidas por las estrictas normas ISO C e ISO C++; rechace todos los programas que utilicen extensiones prohibidas y algunos otros programas que no sigan las normas ISO C e ISO C++.
 OBJDIRS := $(sort $(dir $(OBJ)))
 
-override HEADERS := ClapTrap.hpp\
+override HEADERS := Animal.hpp\
+                    Cat.hpp\
+                    Dog.hpp\
+                    WrongAnimal.hpp\
+                    WrongCat.hpp\
 
 override HEADERS := $(addprefix includes/,$(HEADERS))
 
