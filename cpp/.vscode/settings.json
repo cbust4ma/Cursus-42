@@ -49,6 +49,9 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp",
+        "fstream": "cpp"
     }
 }

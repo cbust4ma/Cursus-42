@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 20:17:41 by cbustama          #+#    #+#             */
-/*   Updated: 2023/01/16 20:05:04 by cbustama         ###   ########.fr       */
+/*   Created: 2023/02/21 19:35:11 by cbustama          #+#    #+#             */
+/*   Updated: 2023/02/21 19:35:13 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
+#include <iostream>
 
-int main()
+template <class T>
+T max (T &a, T &b)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	return (a > b ? a : b);
 }
+
+template <class T>
+T min (T &a, T &b)
+{
+	return (a < b ? a : b);
+}
+
+template <class T> 
+void swap (T &a, T &b)
+{
+	T tmp(a);
+	a = b;
+	b = tmp;
+}
+
+
+#endif

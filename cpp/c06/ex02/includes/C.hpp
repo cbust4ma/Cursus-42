@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 20:17:41 by cbustama          #+#    #+#             */
-/*   Updated: 2023/01/16 20:05:04 by cbustama         ###   ########.fr       */
+/*   Created: 2023/02/14 19:28:23 by cbustama          #+#    #+#             */
+/*   Updated: 2023/02/14 19:28:25 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int main()
+# include <iostream>
+# include "Base.hpp"
+
+class C: public Base
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-}
+	public:
+		C();
+		~C();
+		C &operator=(C const &obj);
+		C(const C &obj);
+};
+
+#endif // !C_HPP

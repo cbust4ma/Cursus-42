@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 20:17:41 by cbustama          #+#    #+#             */
-/*   Updated: 2023/01/16 20:05:04 by cbustama         ###   ########.fr       */
+/*   Created: 2023/02/14 19:28:12 by cbustama          #+#    #+#             */
+/*   Updated: 2023/02/14 19:28:14 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef B_HPP
+# define B_HPP
 
-int main()
+# include <exception>
+# include <cstdlib>
+# include <typeinfo>
+# include <iostream>
+# include "Base.hpp"
+
+class B: public Base
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-}
+	public:
+		B();
+		~B();
+		B &operator=(B const &obj);
+		B(const B &obj);
+};
+
+#endif // !B_HPP

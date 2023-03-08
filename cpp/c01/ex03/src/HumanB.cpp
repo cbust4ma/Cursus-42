@@ -6,7 +6,7 @@
 /*   By: cbustama <cbustama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 20:16:28 by cbustama          #+#    #+#             */
-/*   Updated: 2022/10/05 19:22:23 by cbustama         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:07:39 by cbustama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ HumanB::HumanB(std::string name)
 {
 	this->name = name;
 	this->_weapon = NULL;
+	std::cout << "constructor Human B called" << std::endl;
 	return ;
 }
 
 HumanB::HumanB()
 {
+	std::cout << "constructor default Human B called" << std::endl;
 	this->name = "";
 	return ;
 }
 
 HumanB::~HumanB(void)
 {
+	std::cout << "destructor Human B called" << std::endl;
 	return ;
 }
 
