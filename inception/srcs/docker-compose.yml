@@ -1,0 +1,85 @@
+version: '3.9'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    build: ./requirements/mariadb/.
+    restart: always
+    expose:
+      - 3306
+    networks:
+      - inception
+    volumes: 
+      - db_data:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - WP_ADMIN_USER=${WP_ADMIN_USER}
+      - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD}
+      - HOSTS=${HOSTS} 
+  wordpress:
+    image: wordpress
+    depends_on:
+      - mariadb
+    volumes:
+       - wordpress:/var/www/html
+    build: ./requirements/wordpress/.
+    expose:
+      - 9000
+    container_name: wordpress
+    restart: always
+    networks:
+      - inception
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - WP_ADMIN_USER=${WP_ADMIN_USER}
+      - WORDPRESS_DB_USER=${MYSQL_USER}
+      - WORDPRESS_DB_PASSWORD=${MYSQL_PASSWORD}
+  nginx:
+    volumes: 
+      - wordpress:/var/www/html
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+    build: ./requirements/nginx/.
+    image: nginx
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    container_name: nginx
+    restart: always
+    extra_hosts:
+      - "${DOMAIN_NAME}:127.0.0.1"
+volumes:
+  db_data:
+    name: db_data
+    driver: local
+    driver_opts:
+      type: volume
+      o: bind
+      device: /home/cbustama/data/db
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts: 
+      type: volume
+      o: bind
+      device: /home/cbustama/data/wordpress
+    
+networks:
+  inception:
+    driver: bridge
