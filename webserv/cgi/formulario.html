@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de ejemplo</title>
+</head>
+<body>
+	<h1>PYTHON</h1>
+	<h2>Formulario Post</h2>
+    <form method="post" action="/cgi/procesar.py">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Enviar">
+    </form>
+	<h2>Formulario Get</h2>
+    <form method="get" action="/cgi/procesar.py">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Enviar">
+    </form>
+	<p>----------------------------------</p>
+	<h1>BASH</h1>
+	<h2>Formulario Post</h2>
+    <form method="post" action="/cgi/procesar_bash.sh">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Enviar">
+    </form>
+	<h2>Formulario Get</h2>
+    <form method="get" action="/cgi/procesar_bash.sh">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

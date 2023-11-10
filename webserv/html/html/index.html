@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Server Editor</title>
+    <link rel="icon" type="image/x-icon" href="/html/img/favicon.ico">
+    <link href="https://fonts.cdnfonts.com/css/terminal" rel="stylesheet">
+    <link rel="stylesheet" href="/html/style.css">
+
+</head>
+
+<body>
+    <div class="title-bar">
+        <div>Web Server Editor</div>
+        <div class="window-controls">
+            <button onclick="simulateAction('minimize')">-</button>
+            <button onclick="simulateAction('maximize')">□</button>
+            <button onclick="simulateAction('close')">✕</button>
+        </div>
+    </div>
+
+	<div class="main-content">
+        <div class="code-container">
+			<div class="header">main.cpp</div>
+            <pre class="cpp-code">
+#include &lt;iostream&gt;
+#include &lt;wbserv&gt;
+#include &lt;pojea&gt;
+#include &lt;ualcibar&gt;
+#include &lt;cbustama&gt;
+
+
+int main() 
+{
+    callServer(contentC++);
+    callTitle();
+    Call(subrtitle);
+    callAllButton();
+    callAllForm();
+    return 0;
+}
+            </pre>
+        </div>
+		
+            <i id="compile-button" onclick="compileCode()" class="fa fa-play" aria-hidden="true"></i> 
+<!--
+			<div class="terminal-container">
+				<div class="prompt">
+					<span class="user">Desktopcr45web:src Webserv$</span>
+				</div>
+				<pre class="terminal">
+-->
+<div id="terminal" class="terminal">
+    <div id="output" class="output">
+      <div class="input-container">
+        
+      </div>
+      
+    </div>
+    <span class="waiting">Waiting for command...</span>
+    <div class="input-container">
+      
+      <span class="prompt">Sultansoftech-$ </span>
+      <input type="text" id="commandInput" class="command-input" autofocus />
+    </div>
+  </div>
+	<div class="hidden">
+	<div class="main-content">
+    <h1>Welcome to Sultan's of Tech Web Server ● ● ● </h1>
+    <h2>&#9749; &#9749; &#9749; Altzi, Pojea & Andy String tetetetete &#9749; &#9749; &#9749;</h2>
+    <button onclick="pisa()" class="btn" id="infoButton">Click me for more information...</button>
+
+
+    <h2>File Upload</h2>
+    <!-- Upload  -->
+    <form id="file-upload-form" class="uploader">
+        <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+        <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <div>Select a file or drag here</div>
+                <div id="notimage" class="hidden">Please select an image</div>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+            </div>
+            <div id="response" class="hidden">
+                <div id="messages"></div>
+                <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                </progress>
+            </div>
+        </label>
+    </form>
+
+    <div id="image-container" class="uploaded-images"></div>
+
+	</div>
+<!--</div>-->
+
+</pre>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs"></script>
+<script src="/../html/style.js"></script> 
+</body>
+
+</html>

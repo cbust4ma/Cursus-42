@@ -1,0 +1,474 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+.myImage 
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+body {
+    font-family: 'Terminal', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    color: #00ff00;
+    background-color: #333;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 26px;
+    
+    color: #00ff00;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+p {
+    font-family: 'Terminal', sans-serif;
+    font-size: 18px;
+    color: #5f6982;
+    margin: 0;
+}
+.btn {
+font-family: 'Terminal', sans-serif;
+font-weight: 700;
+font-size: 14px;
+border-radius: 0.2rem;
+outline: none;
+height: 36px;
+box-sizing: border-box;
+cursor: pointer;
+display: flex; /* Agregado para habilitar flexbox */
+justify-content: center; /* Centrar contenido horizontalmente */
+align-items: center; /* Centrar contenido verticalmente */
+text-transform: uppercase;
+box-shadow: -10px 10px 10px #353131, 10px -10px 20px #423d3d;
+background-color: #1e1e1e;
+color: #00ff00;
+font-weight: bolder;
+}
+
+
+.btn:hover {
+    background: linear-gradient(90deg, #0066CC 0%, #00b4d8 100%);
+    color: #0066cc;
+    border: solid 2px #0066cc;
+    color: #000;
+}
+
+.uploader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    clear: both;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+.uploader label {
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: #333;
+    border-radius: 7px;
+    border: 3px solid #444;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.uploader label:hover {
+    border-color: #454cad;
+}
+
+.uploader label.hover {
+    border: 3px solid #454cad;
+    box-shadow: inset 0 0 0 6px #444;
+}
+
+.uploader label.hover #start i.fa {
+    transform: scale(0.8);
+    opacity: 0.3;
+}
+
+.uploader #start {
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    gap: 40px;
+  }
+.uploader #start.hidden {
+    display: none;
+}
+
+.uploader #start i.fa {
+    font-size: 50px;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.uploader #response {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}  
+.uploader #response.hidden {
+    display: none;
+}
+
+.uploader #response #messages {
+    margin-bottom: 0.5rem;
+}
+
+.uploader #file-image {
+    max-width: 100%;
+    max-height: 200px;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block;
+}
+
+.uploader #file-image.hidden {
+    display: none;
+}
+
+.uploader #notimage {
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.uploader #notimage.hidden {
+    display: none;
+}
+
+.uploader progress,
+.uploader .progress {
+    margin: 0 auto; /* Ajusta el margen según sea necesario */
+    width: 80%; /* Ajusta el ancho de la barra de carga según sea necesario */
+    max-width: 180px;
+    height: 8px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #444;
+    overflow: hidden;
+}
+
+.uploader .progress[value]::-webkit-progress-bar {
+    border-radius: 4px;
+    background-color: #444;
+}
+
+.uploader .progress[value]::-webkit-progress-value {
+    background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+    border-radius: 4px;
+}
+
+.uploader .progress[value]::-moz-progress-bar {
+    background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+    border-radius: 4px;
+}
+
+.uploader input[type="file"] {
+    display: none;
+}
+
+.uploader div {
+    margin: 0 0 0.5rem 0;
+    color: #5f6982;
+}
+
+.uploader .btn {
+    
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+    clear: both;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: initial;
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    padding: 0 1rem;
+    height: 36px;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    background: #454cad;
+    border-color: #454cad;
+    cursor: pointer;
+}
+
+h3 {
+    display: none;
+    margin-top: 20px;
+}
+
+.deleteForm {
+
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    margin: 10px;
+    display: flex;
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+.uploaded-images {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+margin-top: 20px; 
+}
+
+.uploaded-image {
+margin: 10px;
+border: 1px solid #555;
+border-radius: 5px;
+width: 400px;
+height: 600px;
+object-fit: cover; /* Opcional, para que la imagen se ajuste manteniendo la proporción */
+}
+
+
+
+.title-bar button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Contenido principal */
+.main-content {
+display: flex;
+flex-direction: column; /* Elimina esta línea */
+align-items: center;
+justify-content: center;
+width: 100%;
+box-sizing: border-box;
+margin-top: 3%;
+}
+.hidden
+{
+    display: none;
+}
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 5px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.title-bar button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
+
+.header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2d2d30;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.cpp-code {
+    color: #00ff00;
+    width: 100%;
+    font-size: 18px;
+    overflow-x: auto;
+    min-height: 200px;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    white-space: pre-wrap;
+    padding: 20px;
+    padding-right: 5px;
+}
+
+
+
+.cpp-code {
+color: #00ff00;
+width: 100%;
+font-size: 18px;
+overflow-x: auto;
+min-height: 200px;
+tab-size: 4;
+-moz-tab-size: 4;
+white-space: pre-wrap;
+padding: 20px;
+padding-right: 5px;
+margin: 0; /* Reset margin for pre element */
+}
+
+.terminal {
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .output {
+    padding: 10px;
+   
+    overflow-y: auto;
+    background-color: black;
+    height: 500px;
+    margin: auto;
+  }
+
+  .input-container {
+    display: flex;
+    padding: 1px;
+    background-color: #2d2d2d;
+    gap: 10px;
+
+    align-items: center;
+    margin: auto;
+    padding-left: 9px;
+ 
+
+  }
+
+  .prompt {
+    font-family: 'monospace';
+    color: #00ff00; /* Verde */
+    font-size: 20px;
+    margin-right: 2px;
+    align-items: center;
+  }
+  .response {
+    color: #ffffff; /* Blanco */
+  }
+
+  .error {
+    color: #ff0000; /* Rojo */
+  }
+
+  .command-input {
+    background-color: transparent;
+    border: none;
+    color: #d4d4d4;
+    width: calc(100% - 60px);
+    outline: none;
+  }
+
+  .waiting {
+    font-size: 20px;
+    padding-left: 10px;
+    
+    color: #808080; /* Gris */
+  
+  }
+
+#compile-button {
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: #454cad;
+    color: #00ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Ajuste del espacio entre la terminal y el botón de compilación */
+}
+
+#compile-button i 
+{
+    margin-right: 8px;
+
+}
